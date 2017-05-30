@@ -3,13 +3,13 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
-import {Provider, connect} from 'react-redux';
+import { createStore } from 'redux';
+import { Provider, connect } from 'react-redux';
 
 // React component
 class Counter extends React.Component {
     render() {
-        const {value, onIncreaseClick} = this.props;
+        const { value, onIncreaseClick } = this.props;
         return (
             <div>
                 <span>{value}</span>
@@ -25,15 +25,15 @@ Counter.propTypes = {
 };
 
 // Action：要做的动作的类型
-const increaseAction = {type: 'increase'};
+const increaseAction = { type: 'increase' };
 
 // Reducer作用： 根据 Action 来更新 State。
 // 首先定义一个改变数据的函数，成为reducer
-function counter(state = {count: 0}, action) {
+function counter(state = { count: 0 }, action) {
     const count = state.count;
     switch (action.type) {
         case 'increase':
-            return {count: count + 1};
+            return { count: count + 1 };
         default:
             return state
     }
@@ -55,7 +55,8 @@ function mapStateToProps(state) {
 }
 
 // 作用===：返回一个对象，定义了 UI组件 的参数怎样发出 Action。
-// mapDispatchToProps是connect函数的第二个参数，用来建立 UI 组件的参数到store.dispatch方法的映射。也就是说，它定义了哪些用户的操作应该当作 Action，传给 Store。它可以是一个函数，也可以是一个对象。
+// mapDispatchToProps是connect函数的第二个参数，用来建立 UI 组件的参数到store.dispatch方法的映射。
+// 也就是说，它定义了哪些用户的操作应该当作 Action，传给 Store。它可以是一个函数，也可以是一个对象。
 // 如果mapDispatchToProps是一个函数，会得到dispatch和ownProps（容器组件的props对象）两个参数。
 // mapDispatchToProps作为函数，应该返回一个对象，该对象的每个键值对都是一个映射，定义了 UI 组件的参数怎样发出 Action。
 function mapDispatchToProps(dispatch) {
@@ -67,7 +68,8 @@ function mapDispatchToProps(dispatch) {
 // connect方法作用===：用于从 UI 组件生成容器组件。
 // React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。
 // UI 组件负责 UI 的呈现，容器组件负责管理数据和逻辑。
-// 如果一个组件既有 UI 又有业务逻辑，那怎么办？回答是，将它拆分成下面的结构：外面是一个容器组件，里面包了一个UI 组件。前者负责与外部的通信，将数据传给后者，由后者渲染出视图。
+// 如果一个组件既有 UI 又有业务逻辑，那怎么办？回答是，将它拆分成下面的结构：外面是一个容器组件，里面包了一个UI 组件。
+//     前者负责与外部的通信，将数据传给后者，由后者渲染出视图。
 // React-Redux 规定，所有的 UI 组件都由用户提供，容器组件则是由 React-Redux 自动生成。也就是说，用户负责视觉层，状态管理则是全部交给它。
 
 // React-Redux 提供connect方法，用于从 UI 组件生成容器组件。
@@ -77,7 +79,8 @@ function mapDispatchToProps(dispatch) {
 //（1）输入逻辑：外部的数据（即state对象）如何转换为 UI 组件的参数。
 //（2）输出逻辑：用户发出的动作如何变为 Action 对象，从 UI 组件传出去。
 
-// connect方法接受两个参数：mapStateToProps和mapDispatchToProps。它们定义了 UI 组件的业务逻辑。前者负责输入逻辑，即将state映射到 UI 组件的参数（props），后者负责输出逻辑，即将用户对 UI 组件的操作映射成 Action。
+// connect方法接受两个参数：mapStateToProps和mapDispatchToProps。它们定义了 UI 组件的业务逻辑。前者负责输入逻辑，
+// 即将state映射到 UI 组件的参数（props），后者负责输出逻辑，即将用户对 UI 组件的操作映射成 Action。
 const App = connect(
     mapStateToProps,
     mapDispatchToProps

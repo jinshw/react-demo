@@ -16,7 +16,7 @@ export let withNotify = ComponsedComponent => class extends React.Component {
         notification.destroy();
         notification.config({
             placement: 'topRight',
-            top: 100,
+            top: 50,
             duration: 3
         });
 

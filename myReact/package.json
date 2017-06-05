@@ -6,13 +6,16 @@
   "scripts": {
     "build": "webpack -d",
     "dev": "webpack-dev-server  --inline --hot",
-    "start": "webpack-dev-server  --inline --hot"
+    "server": "node ./server/app.js",
+    "start": "npm-run-all server dev"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "antd": "^2.10.2",
     "browser": "^0.2.6",
+    "ejs": "^2.5.6",
+    "mongoose": "^4.10.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",
@@ -31,19 +34,26 @@
     "babel-preset-stage-1": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
     "css-loader": "^0.14.5",
     "es6-promise": "^4.1.0",
+    "express": "^4.15.3",
     "file-loader": "^0.8.4",
     "isomorphic-fetch": "^2.2.1",
     "jsx-loader": "^0.13.2",
+    "lodash": "^4.17.4",
     "mockjs": "^1.0.1-beta3",
     "node-libs-browser": "^0.5.2",
     "node-sass": "^3.2.0",
+    "npm-run-all": "^4.0.2",
     "open-browser-webpack-plugin": "^0.0.5",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.18.1",
     "url-loader": "^0.5.6",
     "webpack": "^2.5.1",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-middleware": "^1.10.2",
+    "webpack-dev-server": "^2.4.5",
+    "webpack-hot-middleware": "^2.18.0"
   }
 }

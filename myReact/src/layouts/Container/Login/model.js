@@ -4,8 +4,8 @@ import fetch from 'UTIL/fetch.js';
 //     type: 'POST',
 //     data: data
 // })
-var fetchLogin = (data) => fetch('/data/LoginData.json',{
-    type:"get",
+var fetchLogin = (data) => fetch('http://localhost:3000/api/login',{
+    type:"POST",
     data: data
 })
 export { fetchLogin };

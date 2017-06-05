@@ -33,8 +33,8 @@ class SiderBar extends React.Component {
                         <Menu.Item key="redux">
                             <Link to="/index/redux" activeStyle={ACTIVE}>Redux传递数据</Link>
                         </Menu.Item>
-                        <Menu.Item key="fetch">
-                            <Link to="/index/fetch" activeStyle={ACTIVE}>fetch加载数据</Link>
+                        <Menu.Item key="ajax">
+                            <Link to="/index/ajax" activeStyle={ACTIVE}>ajax加载数据</Link>
                         </Menu.Item>
                         <Menu.Item key="dynamicRoute">
                             <Link to="/index/product" activeStyle={ACTIVE}>动态路由加载</Link>

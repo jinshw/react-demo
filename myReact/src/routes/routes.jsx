@@ -8,6 +8,8 @@ import Container from 'LAYOUTS/Container/index.jsx';
 import Login from 'LAYOUTS/Container/Login/index.jsx';
 import Button from 'COMPONENTS/Antd/Button/index.jsx'
 
+import Ajax from 'COMPONENTS/Content/Ajax'
+
 const Main = (location, cb) => {
     require.ensure([], require => {
         cb(null, require('LAYOUTS/Container/Main').default)
@@ -80,6 +82,7 @@ export default (
 	    <Route path="/login" component={Login} />
 		<Route path="/index" onEnter={authRequired}  getComponent={Main} >
 			<IndexRedirect to="/index/iconfont" />
+            <Route path= "/index/ajax" component= {Ajax}  />
 			<Route path="/index/iconfont" getComponent={IconFont} />
             <Route path="/index/button" component={Button} />
             <Route path="/index/empty" getComponent={Empty} />
